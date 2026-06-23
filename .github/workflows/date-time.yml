@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: print date and time
+      - name: Print Date and Time
         run: date
 
-      - name: print the Branch Name
-        run: echo "Branch: ${{github.ref_name}}"     
+      - name: Print Branch Name
+        run: echo "Branch: ${{ github.ref_name }}"
 
-      - name: list files in the repo
+      - name: List Files in the Repo
         run: ls -la
 
-      - name: print the Runner OS
+      - name: Print Runner OS
         run: echo "Runner OS: $RUNNER_OS"
 
       - name: Print Message
-        run: echo "Hello from GitHub Actions!"  
+        run: echo "Hello from GitHub Actions!"
