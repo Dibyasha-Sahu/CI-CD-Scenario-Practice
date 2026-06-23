@@ -19,7 +19,7 @@ jobs:
       - name: print date and time
         run: date
 
-      - name: print the Branch 
+      - name: print the Branch Name
         run: echo "Branch: ${{github.ref_name}}"     
 
       - name: list files in the repo
