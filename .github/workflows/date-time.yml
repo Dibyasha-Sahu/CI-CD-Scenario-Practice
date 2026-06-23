@@ -1,0 +1,32 @@
+# Print the current date and time
+# Print the name of the branch that triggered the run (hint: GitHub provides this as a variable)
+# List the files in the repo
+# Print the runner's operating system
+
+name: Date and Time Workflow
+
+on:
+  push:
+
+jobs:
+  date-time:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: print date and time
+        run: date
+
+      - name: print the Branch 
+        run: echo "Branch: ${{github.ref_name}}"     
+
+      - name: list files in the repo
+        run: ls -la
+
+      - name: print the Runner OS
+        run: echo "Runner OS: $RUNNER_OS"
+
+      - name: Print Message
+        run: echo "Hello from GitHub Actions!"  
