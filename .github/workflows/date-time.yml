@@ -6,7 +6,7 @@
 name: Date and Time Workflow
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   date-time:
