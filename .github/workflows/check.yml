@@ -13,13 +13,14 @@ on:
 
 jobs:
   pr-check:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
-        uses: action/checkout@a4
+        uses: actions/checkout@v4
 
-      - name: print PR check
-        run: echo "PR check running for branch: ${{ github.head_ref }}"
+      - name: Print Branch Name
+        run: echo " PR check running for branch:${{ github.head_ref }} "
 
+       
 
