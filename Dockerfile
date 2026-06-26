@@ -4,6 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir python:3.12
-
-CMD ["python" , "hello.py"]
+CMD ["python", "hello.py"]
