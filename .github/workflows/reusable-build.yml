@@ -1,0 +1,56 @@
+# Create Your First Reusable Workflow
+
+# Create .github/workflows/reusable-build.yml:
+
+# Set the trigger to workflow_call
+# Add an inputs: section with:
+# app_name (string, required)
+# environment (string, required, default: staging)
+# Add a secrets: section with:
+# docker_token (required)
+# Create a job that:
+# Checks out the code
+# Prints Building <app_name> for <environment>
+# Prints Docker token is set: true (never print the actual secret)
+
+name: reusable-workflow
+
+on:
+  workflow_call:
+    inputs:
+      app_name:
+        description: application name
+        required: true
+        type: string
+
+      enviroment:
+        description: enviroment setup
+        required: true
+        default: staging
+        type: string
+
+    secrets:
+      docker_token:
+        required: true
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout-code
+        uses: actions/checkout@v4
+
+      - name: build information
+        run: |
+          echo "Building ${{inputs.app_name}} for ${{inputs.enviroment}}"      
+
+      - name: check docker token
+        run: |
+          if [-n "${{secret.docker_token}}"]; then
+            echo "Docker token is set: true" 
+          else:
+            echo "Docker token is set: false"
+          fi          
+            
+
