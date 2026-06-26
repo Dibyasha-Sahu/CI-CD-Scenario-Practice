@@ -1,0 +1,23 @@
+# Create .github/workflows/docker-publish.yml that:
+
+# Triggers on push to main
+# Checks out the code
+# Builds the Docker image and tags it
+
+name: Docker-image-in-CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout-code
+        run: actions/checkout@v4
+
+      - name: builds the docker image
+        run: docker build -t myapp:latest .        
